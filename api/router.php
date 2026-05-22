@@ -1,9 +1,19 @@
 <?php
-// 1. FIX THE ROOT PATH: Step up out of the api/ folder to find public_html
-$public_root = dirname(__DIR__) . '/public_html';
+// Dynamically locate the true public_html path
+if (str_contains(__DIR__, '/api')) {
+    // If executing inside the api folder, strip it out
+    $public_root = str_replace('/api', '/public_html', __DIR__);
+} else {
+    // Fallback standard resolution
+    $public_root = dirname(__DIR__) . '/public_html';
+}
+
+// Clean up any double slashes just in case
+$public_root = rtrim($public_root, '/');
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $request_file = $public_root . $path;
+
 
 // 2. Handle Directory Roots (e.g., / looking for /index.php or /index.html)
 if ($path === '/') {
