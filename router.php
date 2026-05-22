@@ -3,6 +3,7 @@ $public_root = __DIR__ . '/public_html';
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $request_file = $public_root . $path; // Fixed name collision: changed $file to $request_file
 
+
 // 1. Handle Static Files
 if ($path !== '/' && file_exists($request_file) && !is_dir($request_file)) {
     $ext = pathinfo($request_file, PATHINFO_EXTENSION);
