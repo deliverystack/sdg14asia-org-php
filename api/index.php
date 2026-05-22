@@ -1,34 +1,26 @@
 <?php
-// Dynamically match the environment root for local dev vs live cloud
-$base_dir = $_SERVER['DOCUMENT_ROOT'] ?: dirname(__DIR__);
-$public_root = $base_dir . '/public_html';
-
+// Track the request path
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-// 1. Handle the Homepage Routing Module (/)
+// 1. Handle Homepage Request (/)
 if ($path === '/') {
-    $index_php = $public_root . '/index.php';
-    $index_html = $public_root . '/index.html';
-    
-    if (file_exists($index_php)) {
-        include $index_php;
-        exit;
-    } elseif (file_exists($index_html)) {
-        header("Content-Type: text/html; charset=utf-8");
-        readfile($index_html);
-        exit;
-    }
-}
-
-// 2. Handle Clean PHP Extension URLs (e.g., /about maps to /public_html/about.php)
-$phpFile = $public_root . rtrim($path, '/') . '.php';
-if (file_exists($phpFile)) {
-    include $phpFile;
+    // This explicit include forces Vercel to bundle the file into your deployment
+    require __DIR__ . '/../public_html/index.php';
     exit;
 }
 
-// 3. Handle Raw CDN Assets (CSS, JS, Images, PDFs)
+// 2. Handle Clean URLs manually for your individual core pages
+// Add your clean URL mappings here so Vercel compiles them explicitly
+if ($path === '/about') {
+    require __DIR__ . '/../public_html/about.php'; // Update path if you have about.php
+    exit;
+}
+
+// 3. Fallback for Static Assets (CSS, JS, Images, PDFs)
+// Since Vercel hides the directory tree, we output a header loop to serve assets
+$public_root = __DIR__ . '/../public_html';
 $staticFile = $public_root . $path;
+
 if (file_exists($staticFile) && !is_dir($staticFile)) {
     $ext = pathinfo($staticFile, PATHINFO_EXTENSION);
     $mimes = [
@@ -48,8 +40,7 @@ if (file_exists($staticFile) && !is_dir($staticFile)) {
     exit;
 }
 
-// 4. Ultimate Fallback Route Page
+// 4. Ultimate 404 Fallback
 http_response_code(404);
 header("Content-Type: text/html; charset=utf-8");
 echo "<h2>404 Not Found</h2>";
-echo "Requested URL: " . htmlspecialchars($path);
