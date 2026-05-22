@@ -1,0 +1,47 @@
+<?php
+// Look for the absolute root of the workspace directory inside Vercel
+$base_dir = $_SERVER['PWD'] ?? dirname(__DIR__);
+$public_root = $base_dir . '/public_html';
+
+$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+// 1. Handle Homepage Request (/)
+if ($path === '/') {
+    $index_php = $public_root . '/index.php';
+    if (file_exists($index_php)) {
+        include $index_php;
+        exit;
+    }
+}
+
+// 2. Handle Clean PHP URLs (e.g., /about maps to /public_html/about.php)
+$phpFile = $public_root . rtrim($path, '/') . '.php';
+if (file_exists($phpFile)) {
+    include $phpFile;
+    exit;
+}
+
+// 3. Static Asset Engine Fallback
+$staticFile = $public_root . $path;
+if (file_exists($staticFile) && !is_dir($staticFile)) {
+    $ext = pathinfo($staticFile, PATHINFO_EXTENSION);
+    $mimes = [
+        'css'  => 'text/css',
+        'js'   => 'application/javascript',
+        'png'  => 'image/png',
+        'jpg'  => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'pdf'  => 'application/pdf',
+        'ico'  => 'image/x-icon',
+        'svg'  => 'image/svg+xml'
+    ];
+    if (isset($mimes[$ext])) {
+        header("Content-Type: " . $mimes[$ext]);
+    }
+    readfile($staticFile);
+    exit;
+}
+
+// 4. Default Fallback
+http_response_code(404);
+echo "404 Not Found";
