@@ -3,14 +3,13 @@
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0",
-      "includeFiles": "includes/**"
+      "includeFiles": [
+        "includes/**",
+        "public_html/**"
+      ]
     }
   },
   "routes": [
-    {
-      "src": "/(css|js|images|assets|forms|files|favicon.ico|styles.css|main.js)/(.*)",
-      "dest": "/public_html/$1/$2"
-    },
     {
       "src": "/(.*)",
       "dest": "/api/index.php"

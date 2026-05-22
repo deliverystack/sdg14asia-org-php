@@ -1,11 +1,5 @@
 <?php
 $public_root = __DIR__ . '/public_html';
-
-$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$request_file = $public_root . $path;
-
-$public_root = rtrim($public_root, '/');
-
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $request_file = $public_root . $path;
 

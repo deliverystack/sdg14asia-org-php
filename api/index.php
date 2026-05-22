@@ -1,33 +1,46 @@
 <?php
-// Look directly inside the public_html folder sitting next to /api
-$public_root = dirname(__DIR__) . '/public_html';
+// Define the root of the project (one level up from /api)
+$project_root = dirname(__DIR__);
+$public_root = $project_root . '/public_html';
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-// If root is requested, load your primary index file
+// 1. Handle the Home Request (/)
 if ($path === '/') {
     if (file_exists($public_root . '/index.php')) {
         include $public_root . '/index.php';
         exit;
-    } elseif (file_exists($public_root . '/index.html')) {
-        readfile($public_root . '/index.html');
-        exit;
     }
 }
 
-// Handle clean URLs (e.g. /about tries to find /public_html/about.php)
+// 2. Handle Clean URLs (e.g., /about matches /public_html/about.php)
 $phpFile = $public_root . rtrim($path, '/') . '.php';
 if (file_exists($phpFile)) {
     include $phpFile;
     exit;
 }
 
-// Final fallback to raw static assets or 404
+// 3. Handle Static Assets (CSS, JS, Images, PDFs)
 $staticFile = $public_root . $path;
 if (file_exists($staticFile) && !is_dir($staticFile)) {
+    // Dynamically detect content type for static files
+    $ext = pathinfo($staticFile, PATHINFO_EXTENSION);
+    $mimes = [
+        'css' => 'text/css',
+        'js'  => 'application/javascript',
+        'png' => 'image/png',
+        'jpg' => 'image/jpeg',
+        'jpeg'=> 'image/jpeg',
+        'pdf' => 'application/pdf',
+        'ico' => 'image/x-icon'
+    ];
+    if (isset($mimes[$ext])) {
+        header("Content-Type: " . $mimes[$ext]);
+    }
     readfile($staticFile);
     exit;
 }
 
+// 4. Final Fallback
 http_response_code(404);
 echo "404 Not Found";
