@@ -1,38 +1,45 @@
 <?php
-// Define the root of the project (one level up from /api)
-$project_root = dirname(__DIR__);
-$public_root = $project_root . '/public_html';
+// Dynamically match the environment root for local dev vs live cloud
+$base_dir = $_SERVER['DOCUMENT_ROOT'] ?: dirname(__DIR__);
+$public_root = $base_dir . '/public_html';
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-// 1. Handle the Home Request (/)
+// 1. Handle the Homepage Routing Module (/)
 if ($path === '/') {
-    if (file_exists($public_root . '/index.php')) {
-        include $public_root . '/index.php';
+    $index_php = $public_root . '/index.php';
+    $index_html = $public_root . '/index.html';
+    
+    if (file_exists($index_php)) {
+        include $index_php;
+        exit;
+    } elseif (file_exists($index_html)) {
+        header("Content-Type: text/html; charset=utf-8");
+        readfile($index_html);
         exit;
     }
 }
 
-// 2. Handle Clean URLs (e.g., /about matches /public_html/about.php)
+// 2. Handle Clean PHP Extension URLs (e.g., /about maps to /public_html/about.php)
 $phpFile = $public_root . rtrim($path, '/') . '.php';
 if (file_exists($phpFile)) {
     include $phpFile;
     exit;
 }
 
-// 3. Handle Static Assets (CSS, JS, Images, PDFs)
+// 3. Handle Raw CDN Assets (CSS, JS, Images, PDFs)
 $staticFile = $public_root . $path;
 if (file_exists($staticFile) && !is_dir($staticFile)) {
-    // Dynamically detect content type for static files
     $ext = pathinfo($staticFile, PATHINFO_EXTENSION);
     $mimes = [
-        'css' => 'text/css',
-        'js'  => 'application/javascript',
-        'png' => 'image/png',
-        'jpg' => 'image/jpeg',
-        'jpeg'=> 'image/jpeg',
-        'pdf' => 'application/pdf',
-        'ico' => 'image/x-icon'
+        'css'  => 'text/css',
+        'js'   => 'application/javascript',
+        'png'  => 'image/png',
+        'jpg'  => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'pdf'  => 'application/pdf',
+        'ico'  => 'image/x-icon',
+        'svg'  => 'image/svg+xml'
     ];
     if (isset($mimes[$ext])) {
         header("Content-Type: " . $mimes[$ext]);
@@ -41,6 +48,8 @@ if (file_exists($staticFile) && !is_dir($staticFile)) {
     exit;
 }
 
-// 4. Final Fallback
+// 4. Ultimate Fallback Route Page
 http_response_code(404);
-echo "404 Not Found";
+header("Content-Type: text/html; charset=utf-8");
+echo "<h2>404 Not Found</h2>";
+echo "Requested URL: " . htmlspecialchars($path);
