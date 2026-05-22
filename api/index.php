@@ -1,6 +1,6 @@
 <?php
-// Look for the absolute root of the workspace directory inside Vercel
-$base_dir = $_SERVER['PWD'] ?? dirname(__DIR__);
+// Look directly into Vercel's global compiled folder destination root
+$base_dir = '/var/task';
 $public_root = $base_dir . '/public_html';
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
@@ -21,7 +21,7 @@ if (file_exists($phpFile)) {
     exit;
 }
 
-// 3. Static Asset Engine Fallback
+// 3. Fallback to reading the statically bound asset directory contents directly
 $staticFile = $public_root . $path;
 if (file_exists($staticFile) && !is_dir($staticFile)) {
     $ext = pathinfo($staticFile, PATHINFO_EXTENSION);
@@ -42,6 +42,6 @@ if (file_exists($staticFile) && !is_dir($staticFile)) {
     exit;
 }
 
-// 4. Default Fallback
+// 4. Fallback Page
 http_response_code(404);
 echo "404 Not Found";
