@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/router.php",
+      "src": "public_html/**/*.php",
       "use": "vercel-php@0.9.0"
     },
     {
@@ -12,12 +12,16 @@
   ],
   "routes": [
     {
-      "src": "/(css|js|images|assets)/(.*)",
-      "dest": "/public_html/$1/$2"
+      "src": "/$",
+      "dest": "/public_html/index.php"
+    },
+    {
+      "src": "/([^/]+)$",
+      "dest": "/public_html/$1.php"
     },
     {
       "src": "/(.*)",
-      "dest": "api/router.php"
+      "dest": "/public_html/$1"
     }
   ]
 }
