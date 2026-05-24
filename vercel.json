@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "functions": {
-    "router.php": { "runtime": "vercel-php@0.7.3" }
-  },
+  "builds": [
+    { "src": "router.php", "use": "vercel-php@0.7.3" }
+  ],
   "routes": [
     {
       "src": "/(css|js|png|pdf|ico)/(.*)",
