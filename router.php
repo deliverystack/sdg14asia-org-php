@@ -1,3 +1,14 @@
+<?php
+// Dynamically detect if we are executing from the root folder or inside the api/ subfolder
+if (basename(__DIR__) === 'api' || strpos($_SERVER['SCRIPT_FILENAME'], 'api/') !== false) {
+    $public_root = dirname(__DIR__) . '/public_html';
+} else {
+    $public_root = __DIR__ . '/public_html';
+}
+
+$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$request_file = $public_root . $path;
+
 // 2. Static Site Compiler / Regenerator
 if ($path === '/regenerate') {
     $is_vercel = isset($_SERVER['VERCEL_ENV']) || isset($_SERVER['NOW_REGION']);
