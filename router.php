@@ -1,8 +1,9 @@
 <?php
-// Dynamically detect if we are executing from the root folder or inside the api/ subfolder
-if (basename(__DIR__) === 'api' || strpos($_SERVER['SCRIPT_FILENAME'], 'api/') !== false) {
-    $public_root = dirname(__DIR__) . '/public_html';
-} else {
+// Look for public_html relative to the router's exact file location
+$public_root = realpath(__DIR__ . '/public_html');
+
+// Fallback to strict string concatenation if paths are inside isolated virtual mounts
+if (!$public_root) {
     $public_root = __DIR__ . '/public_html';
 }
 
