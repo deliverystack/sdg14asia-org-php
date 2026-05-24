@@ -5,16 +5,16 @@
   },
   "routes": [
     {
-      "src": "/(css|js|png|pdf|ico)/(.*)",
+      "src": "/(css|js|png|jpg|jpeg|svg|pdf|ico)/(.*)",
       "dest": "/public_html/$1/$2"
     },
     {
       "src": "/sitemap.xml",
-      "dest": "/public_html/sitemap.xml"
+      "dest": "/api/index.php"
     },
     {
       "src": "/sitemap.html",
-      "dest": "/public_html/sitemap.html"
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",
