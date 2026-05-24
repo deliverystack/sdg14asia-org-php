@@ -103,7 +103,58 @@ if ($path === '/regenerate') {
     exit;
 }
 
-// 3. Handle Root Index Request (/)
+// 3. Handle Dynamic XML Sitemap Requests
+if ($path === '/sitemap.xml') {
+    header("Content-Type: text/xml; charset=utf-8");
+    
+    $scheme = $_SERVER['REQUEST_SCHEME'] ?? 'http';
+    $host = $_SERVER['HTTP_HOST']; 
+    $local_domain = $scheme . '://' . $host;
+
+    echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+    if (is_dir($public_root)) {
+        $dir_items = scandir($public_root);
+        foreach ($dir_items as $item) {
+            if (pathinfo($item, PATHINFO_EXTENSION) === 'php' && $item[0] !== '.') {
+                $filename = pathinfo($item, PATHINFO_FILENAME);
+                $urlPath = ($item === 'index.php') ? '/' : '/' . $filename;
+                $lastmod = date('Y-m-d', filemtime($public_root . '/' . $item));
+
+                echo "    <url>\n";
+                echo "        <loc>" . htmlspecialchars($local_domain . $urlPath) . "</loc>\n";
+                echo "        <lastmod>" . $lastmod . "</lastmod>\n";
+                echo "        <changefreq>weekly</changefreq>\n";
+                echo "        <priority>" . ($urlPath === '/' ? '1.0' : '0.8') . "</priority>\n";
+                echo "    </url>\n";
+            }
+        }
+    }
+    echo '</urlset>';
+    exit;
+}
+
+// 4. Handle Dynamic HTML Sitemap Requests
+if ($path === '/sitemap.html') {
+    header("Content-Type: text/html; charset=utf-8");
+    echo "<!DOCTYPE html>\n<html>\n<head><title>Sitemap</title></head>\n<body>\n<h1>Sitemap</h1>\n<ul>\n";
+
+    if (is_dir($public_root)) {
+        $dir_items = scandir($public_root);
+        foreach ($dir_items as $item) {
+            if (pathinfo($item, PATHINFO_EXTENSION) === 'php' && $item[0] !== '.') {
+                $filename = pathinfo($item, PATHINFO_FILENAME);
+                $urlPath = ($item === 'index.php') ? '/' : '/' . $filename;
+                echo "    <li><a href=\"" . htmlspecialchars($urlPath) . "\">" . ($urlPath === '/' ? 'Home' : ucfirst($filename)) . "</a></li>\n";
+            }
+        }
+    }
+    echo "</ul>\n</body>\n</html>";
+    exit;
+}
+
+// 5. Handle Root Index Request (/)
 if ($path === '/') {
     $index = $public_root . '/index.php';
     if (file_exists($index)) {
@@ -112,14 +163,14 @@ if ($path === '/') {
     }
 }
 
-// 4. Handle Clean URLs (/about, /membership, etc.)
+// 6. Handle Clean URLs (/about, /membership, etc.)
 $phpFile = $public_root . $path . '.php';
 if (file_exists($phpFile)) {
     include $phpFile;
     exit;
 }
 
-// 5. Explicit 404 Fallback
+// 7. Explicit 404 Fallback
 http_response_code(404);
 echo "Router Error: Cannot find " . htmlspecialchars($path) . "<br>";
 echo "Looking in: " . htmlspecialchars($public_root);
