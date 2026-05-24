@@ -9,6 +9,26 @@ if (basename(__DIR__) === 'api' || strpos($_SERVER['SCRIPT_FILENAME'], 'api/') !
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $request_file = $public_root . $path;
 
+// 1. Handle Static Files Natively (CSS, JS, Images, PDFs)
+if ($path !== '/' && file_exists($request_file) && !is_dir($request_file)) {
+    $ext = pathinfo($request_file, PATHINFO_EXTENSION);
+    $mimes = [
+        'css'  => 'text/css',
+        'js'   => 'application/javascript',
+        'png'  => 'image/png',
+        'jpg'  => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'svg'  => 'image/svg+xml',
+        'pdf'  => 'application/pdf',
+        'ico'  => 'image/x-icon'
+    ];
+    if (isset($mimes[$ext])) {
+        header("Content-Type: " . $mimes[$ext]);
+    }
+    readfile($request_file);
+    exit;
+}
+
 // 2. Static Site Compiler / Regenerator
 if ($path === '/regenerate') {
     $is_vercel = isset($_SERVER['VERCEL_ENV']) || isset($_SERVER['NOW_REGION']);
@@ -81,3 +101,24 @@ if ($path === '/regenerate') {
     }
     exit;
 }
+
+// 3. Handle Root Index Request (/)
+if ($path === '/') {
+    $index = $public_root . '/index.php';
+    if (file_exists($index)) {
+        include $index;
+        exit;
+    }
+}
+
+// 4. Handle Clean URLs (/about, /membership, etc.)
+$phpFile = $public_root . $path . '.php';
+if (file_exists($phpFile)) {
+    include $phpFile;
+    exit;
+}
+
+// 5. Explicit 404 Fallback
+http_response_code(404);
+echo "Router Error: Cannot find " . htmlspecialchars($path) . "<br>";
+echo "Looking in: " . htmlspecialchars($public_root);
