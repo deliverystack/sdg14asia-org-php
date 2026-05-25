@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../includes/functions.php'; 
+require_once __DIR__ . '/../includes/functions.php';
 
 $metaJSON = '{
     "title": "Marine Kindergarten + Blue Carbon + Plankton Observatory",
