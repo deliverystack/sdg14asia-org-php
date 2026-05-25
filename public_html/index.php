@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../../includes/functions.php';
 
 $metaJSON = '{
     "title": "SDG14 Asia Phuket Regional Hub",
@@ -9,10 +9,10 @@ $metaJSON = '{
 
 $meta = preprocess_JSON($metaJSON);
 
-include_once __DIR__ . '/../includes/header.php'; 
-include_once __DIR__ . '/../includes/hero.php'; 
-include_once __DIR__ . '/../includes/about.php'; 
-include_once __DIR__ . '/../includes/membership.php'; 
+include_once APP_ROOT . '/includes/header.php'; 
+include_once APP_ROOT . '/includes/hero.php'; 
+include_once APP_ROOT . '/includes/about.php'; 
+include_once APP_ROOT . '/includes/membership.php'; 
 
 $quoteJSON = '{
     "cite": "SDG14 Asia Association",
@@ -20,11 +20,11 @@ $quoteJSON = '{
 }';
 
 $quote = preprocess_JSON($quoteJSON);
-include_once __DIR__ . '/../includes/quote.php'; 
+include_once APP_ROOT . '/includes/quote.php'; 
 
-include_once __DIR__ . '/../includes/events.php'; 
+include_once APP_ROOT . '/includes/events.php'; 
 
-include_once __DIR__ . '/../includes/projects.php'; 
+include_once APP_ROOT . '/includes/projects.php'; 
 
 ?>
 
@@ -48,6 +48,6 @@ include_once __DIR__ . '/../includes/projects.php';
 
 <?php
 
-include_once __DIR__ . '/../includes/footer.php'; 
+include_once APP_ROOT . '/includes/footer.php'; 
 
 ?>

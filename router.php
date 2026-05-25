@@ -1,4 +1,7 @@
 <?php
+
+define('APP_ROOT', __DIR__);
+
 // Look for public_html relative to the router's exact file location
 $public_root = realpath(__DIR__ . '/public_html');
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../includes/functions.php'; // find it once
+require_once __DIR__ . '/../../includes/functions.php'; 
 
 $metaJSON = '{
     "title": "//TODO:",
@@ -9,23 +9,22 @@ $metaJSON = '{
 
 $meta = preprocess_JSON($metaJSON);
 
-include_once __DIR__ . '/../includes/header.php'; 
+include_once APP_ROOT . '/includes/header.php';
 
 ?>
 
 <main class="content-section">
   <div class="container">
+
     <header class="section-header">
-      <h1 class="page-title">Scientific Collaboration Opportunities</h1>
+      <h1 class="page-title">Marine Kindergarten + Blue Carbon + Plankton Observatory</h1>
       <p class="page-lead">The Marine Kindergarten + Blue Carbon + Plankton Observatory Pilot Project is intended as a multidisciplinary marine research platform that provides scientists with a unique opportunity to investigate biodiversity enhancement within marina environments, an area that remains relatively understudied in tropical Asia.</p>
-        
-      <!--<p>The project seeks scientific partners to co-design research methodologies, supervise data collection, lead analyses, and co-author publications arising from the study.</p>-->
     </header>
 
     <section class="content-block">
       <h2 class="section-subtitle">Scientific Objectives</h2>
       <p>The project aims to investigate the ecological role of artificial nursery habitats installed within marina environments and evaluate their potential contribution to coastal biodiversity conservation. Key research questions include:</p>
-<!--      
+
       <div class="objective-block">
         <h3>Marine Kindergarten</h3>
         <ul class="styled-list">
@@ -52,14 +51,14 @@ include_once __DIR__ . '/../includes/header.php';
           <li>Can plankton abundance and diversity be used as indicators of ecosystem productivity and habitat quality?</li>
           <li>What relationships exist between plankton dynamics and juvenile fish recruitment?</li>
         </ul>
-      </div>-->
+      </div>
     </section>
-<!--
+
     <section class="content-block">
       <h2 class="section-subtitle">Research Platform</h2>
       <h3>Study Sites</h3>
       <p>Four marinas in Phuket will serve as study locations. Twelve Marine Kindergarten habitat units will be deployed, with three units installed at each marina. This provides a replicated experimental framework suitable for statistical comparison between locations and over time.</p>
-      
+
       <h3>Habitat Design</h3>
       <p>Each Marine Kindergarten unit measures 120 cm in length by 75 cm in width. The structures are designed to provide:</p>
       <ul class="styled-list">
@@ -72,7 +71,7 @@ include_once __DIR__ . '/../includes/header.php';
 
     <section class="content-block">
       <h2 class="section-subtitle">Scientific Monitoring Programme</h2>
-      
+
       <h3>Biodiversity Surveys</h3>
       <p>Monthly monitoring of species richness, species abundance, juvenile fish recruitment, invertebrate colonization, and habitat utilization. Methods may include underwater visual census, photo quadrats, video transects, and species identification surveys.</p>
 
@@ -88,7 +87,7 @@ include_once __DIR__ . '/../includes/header.php';
 
     <section class="content-block">
       <h2 class="section-subtitle">Institutional Participation</h2>
-      
+
       <h3>Opportunities for PMBC Scientists</h3>
       <p>The project aligns strongly with expertise in marine ecology, fisheries biology, biodiversity assessment, coastal ecosystem management, marine productivity, environmental monitoring, and marine conservation. Potential contributions include principal investigator roles, methodology development, field supervision, taxonomic identification, statistical analysis, and scientific publication leadership.</p>
 
@@ -110,7 +109,7 @@ include_once __DIR__ . '/../includes/header.php';
     <section class="content-block">
       <h2 class="section-subtitle">Funding Framework &amp; Partnerships</h2>
       <p>For a one-year pilot with 12 Marine Kindergarten units across 4 marinas, there are three funding levels available:</p>
-      
+
       <div class="option-card">
         <h3>Option 1: Scientific Advisory Partnership (THB 300,000 – 800,000)</h3>
         <p>Suitable if PMBC and PSU provide scientific advice only while SDG14 Asia and marina staff collect field data. Includes research design, site visits, quarterly reviews, and final report compilation.</p>
@@ -119,7 +118,7 @@ include_once __DIR__ . '/../includes/header.php';
       <div class="option-card">
         <h3>Option 2: Full Research Collaboration (THB 1.5 – 3 million)</h3>
         <p>Suitable for active scientist participation, monthly field surveys, plankton sampling, lab tracking, and student involvement targeted towards peer-reviewed publications.</p>
-        
+
         <table class="data-table">
           <thead>
             <tr>
@@ -149,7 +148,7 @@ include_once __DIR__ . '/../includes/header.php';
       <div class="recommendation-box">
         <h3>Recommended Year 1 Target: THB 2.5 million</h3>
         <p>Large enough to attract serious scientific participation while remaining realistic for a pilot project. For formal fundraising applications, this is branded as the <strong>"Marine Kindergarten Research &amp; Monitoring Programme (12-month pilot)"</strong>.</p>
-        
+
         <table class="data-table recommended-table">
           <thead>
             <tr>
@@ -172,12 +171,12 @@ include_once __DIR__ . '/../includes/header.php';
       </div>
     </section>
 
--->
   </div>
 </main>
 
+
 <?php
 
-include_once __DIR__ . '/../includes/footer.php'; 
+include_once APP_ROOT . '/includes/footer.php'; 
 
 ?>

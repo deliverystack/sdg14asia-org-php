@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('APP_ROOT')) {
+    define('APP_ROOT', dirname(__FILE__, 2)); // includes/ -> repo root
+}
 function preprocess_JSON($rawJson) {
     if (empty($rawJson)) {
         return (object)[];
