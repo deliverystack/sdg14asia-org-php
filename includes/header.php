@@ -41,8 +41,10 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-78MD6JXLWY"></script>
   <script>
-    gtag('js', new Date());
-    gtag('config', 'G-78MD6JXLWY');
+  if (window.location.hostname === 'sdg14asia.org' || window.location.hostname === 'www.sdg14asia.org') {
+      gtag('js', new Date());
+      gtag('config', 'G-78MD6JXLWY');
+    }
   </script>
 
   <script src="main.js"></script>
@@ -67,23 +69,30 @@
   <div class="nav-logo">
 <!--    <div class="logo-badge">-->
   <!--//TODO: shouldn't be a link if this is the home page-->
-<a href="/" id="logo-link"><img src="/images/sdg14asia-logo.png" width="100" alt="SDG14Asia.org Logo" /></a>
+
+  <?php if ($_SERVER['REQUEST_URI'] === '/') { ?>
+    <img src="/images/sdg14asia-logo.png" width="100" alt="SDG14Asia.org Logo" />
+  <?php } else { ?>
+    <a href="/" id="logo-link"><img src="/images/sdg14asia-logo.png" width="100" alt="SDG14Asia.org Logo" /></a>
+  <?php } ?>
+
 <!--    </div>-->
     SDG14 Asia Association
   </div>
 
   <!-- Desktop links -->
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
+    <li><?= nav_link('/', 'Home') ?></li>
+    <li><?= nav_link('/projects', 'Projects') ?></li>
+
 <!--
     <li><a href="#">About</a></li>
-    <li><a href="#">Projects</a></li>
     <li><a href="#">Events</a></li>
     <li><a href="#">Stories</a></li>
   -->
     <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Membership</a></li>
     <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Donate</a></li>
-    <li><a href="mailto:info@sdg14asia.com">Contact</a></li>
+    <li><a href="mailto:info@sdg14asia.org">Contact</a></li>
   </ul>
 
   <div class="nav-right">
@@ -120,7 +129,7 @@
 -->  
   <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Membership</a></li>
   <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Donate</a></li>
-  <li><a href="mailto:info@sdg14asia.com">Contact</a></li>
+  <li><a href="mailto:info@sdg14asia.org">Contact</a></li>
 <!--
   <li class="mobile-bottom">
     <div class="lang-selector">

@@ -1,10 +1,3 @@
-if (window.location.pathname === '/') {
-  const logoLink = document.getElementById('logo-link');
-  if (logoLink) {
-    logoLink.replaceWith(...logoLink.childNodes);
-  }
-}
-
 // Language selector toggle
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {

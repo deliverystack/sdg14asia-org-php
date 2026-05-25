@@ -721,102 +721,96 @@ footer {
 /* =====================
    CAPTIONED MEDIA UTILITY
    ===================== */
-If the layout space doesn't have enough vertical breathing room to allow the text to sit centered next to the grid contents, it means the column height of .about-grid is tightly bounded, or .about-img-inner is being squeezed by its sibling element.
-
-To fix this, we can change the layout behavior of the container. Instead of relying on the image and text to share an uncertain amount of vertical space inside an unconstrained box, we can explicitly format .about-img-inner as a full-height CSS Grid or Flex container that explicitly separates the space: the image gets the bulk of the height, and the caption gets a guaranteed slice of the vertical center right below it.
-
-Here is the revised CSS block to drop into public_html/styles.css:
-
-CSS
-/* =====================
-   CAPTIONED MEDIA UTILITY
-   ===================== */
 .captioned-media {
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100% !important;   /* Force it to span the full grid height */
+  height: 100%;
   margin: 0;
 }
 
 .captioned-media img {
   display: block;
   width: 100%;
-  height: 0;                /* Resets default height tracking */
-  flex-grow: 1;             /* Forces the image to expand and fill available space */
-  object-fit: cover;        /* Keeps the image aspect ratio crisp without distortion */
+  flex: 1 1 auto;
+  min-height: 0;
+  object-fit: cover;
 }
 
 .media-caption {
-  display: flex !important;
-  align-items: center !important;    /* Vertically centers text inside the caption zone */
-  justify-content: center !important; /* Horizontally centers text */
-  
-  height: 45px !important;            /* Allocates a fixed, guaranteed slice of vertical space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
   font-size: 0.8rem;
-  color: var(--sand) !important;      /* Uses global gold/yellow variable */
+  color: var(--sand);
   font-style: italic;
   letter-spacing: 0.02em;
   line-height: 1.3;
   text-align: center;
 }
 
-/* Structural Overrides to ensure containers scale to full height */
 .about-img,
 .about-img-inner {
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;   /* Matches the height of the left text box layout */
-  overflow: visible !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: visible;
 }
 
 
-
-.research-proposal {
-  padding: 3rem 0 2rem; /* Reduced from 6rem 0 4rem to tighten top/bottom page padding */
+.content-section {
+  padding: 1rem 0 2rem;
   background-color: var(--white);
   color: var(--text-dark);
 }
 
-.proposal-header {
-  margin-bottom: 1.5rem; /* Reduced from 3rem to bring the content closer to the header */
+.section-header {
+  margin-bottom: 1rem;
   border-bottom: 2px solid var(--ocean-light);
-  padding-bottom: 1.5rem; /* Slightly reduced from 2rem */
+  padding-bottom: 1rem;
+  padding-top: 70px;
 }
 
-.proposal-title {
+.page-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   color: var(--ocean-deep);
   margin-bottom: 1rem;
 }
 
-.proposal-lead {
+.page-lead {
   font-size: 1.15rem;
   line-height: 1.6;
   color: var(--text-mid);
 }
 
-.proposal-section {
-  margin-bottom: 2rem; /* Reduced from 3.5rem to compress whitespace between major sections */
+.content-block {
+  margin-bottom: 1rem;
+  padding-top: 0;
 }
 
 .section-subtitle {
   font-family: 'Playfair Display', serif;
   font-size: 1.75rem;
   color: var(--ocean-deep);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
   border-left: 4px solid var(--ocean-mid);
   padding-left: 1rem;
 }
 
-.research-proposal h3 {
-  font-size: 1.2rem;
-  color: var(--ocean-mid);
-  margin: 1rem 0 0.5rem 0; /* Reduced top margin from 1.5rem and bottom from 0.75rem */
+.content-section section {
+  padding: 0;
 }
 
-.research-proposal p {
+.content-section h3 {
+  font-size: 1.2rem;
+  color: var(--ocean-mid);
+  margin: 1rem 0 0.5rem 0;
+}
+
+.content-section p {
   line-height: 1.6;
   color: var(--text-mid);
   margin-bottom: 1rem;
@@ -837,7 +831,6 @@ CSS
   padding-left: 1.25rem;
 }
 
-/* Bullet decoration utilizing your brand accent color */
 .styled-list li::before {
   content: "•";
   position: absolute;
@@ -875,7 +868,7 @@ CSS
 }
 
 /* --- REUSABLE GENERIC DATA TABLES --- */
-.proposal-table {
+.data-table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.25rem 0 1.75rem;
@@ -884,31 +877,29 @@ CSS
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.proposal-table th, 
-.proposal-table td {
+.data-table th,
+.data-table td {
   padding: 0.75rem 1rem;
   text-align: left;
 }
 
-.proposal-table th {
+.data-table th {
   background-color: var(--ocean-deep);
   color: var(--white);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
-.proposal-table td {
+.data-table td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   color: var(--text-mid);
 }
 
-/* Zebra striping for structural legibility */
-.proposal-table tbody tr:nth-of-type(even) {
+.data-table tbody tr:nth-of-type(even) {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-/* Highlight layout for final calculations rows */
-.proposal-table .table-total td {
+.data-table .table-total td {
   font-weight: bold;
   background-color: var(--ocean-light);
   color: var(--ocean-deep);
@@ -916,10 +907,10 @@ CSS
   border-bottom: 2px solid var(--ocean-mid);
 }
 
-/* Context styling adjustment for the final recommendation table */
 .recommended-table th {
   background-color: var(--teal-dark);
 }
+
 .recommended-table .table-total td {
   background-color: var(--teal-light);
   color: var(--teal-dark);
@@ -928,7 +919,13 @@ CSS
 }
 
 @media (max-width: 768px) {
-  .proposal-title { font-size: 2rem; }
+  .page-title { font-size: 2rem; }
   .section-subtitle { font-size: 1.4rem; }
-  .proposal-table th, .proposal-table td { padding: 0.5rem 0.75rem; }
+  .data-table th, .data-table td { padding: 0.5rem 0.75rem; }
+}
+
+.nav-current {
+  color: var(--sand);
+  font-size: 0.82rem; font-weight: 400; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0 1rem;
 }

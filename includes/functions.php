@@ -10,3 +10,10 @@ function preprocess_JSON($rawJson) {
 
     return $decoded ?: (object)[];
 }
+
+function nav_link(string $href, string $label): string {
+  $current = strtok($_SERVER['REQUEST_URI'], '?') === $href;
+  return $current
+    ? '<span class="nav-current">' . $label . '</span>'
+    : '<a href="' . $href . '">' . $label . '</a>';
+}

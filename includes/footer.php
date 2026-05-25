@@ -1,11 +1,11 @@
 
 <div class="cta-bar">
   <div class="cta-grid">
-    <a href="mailto:info@sdg14asia.com">
+    <a href="mailto:info@sdg14asia.org">
       <div class="cta-item">
         <div class="cta-icon">🤝</div>
         <h4>Get in Touch</h4>
-        <p>info@sdg14asia.com</p>
+        <p>info@sdg14asia.org</p>
       </div>
     </a>
     <a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">
@@ -22,7 +22,7 @@
         <p>Support our mission</p>
       </div>
     </a>
-    <a href="mailto:info@sdg14asia.com">
+    <a href="mailto:info@sdg14asia.org">
       <div class="cta-item">
         <div class="cta-icon">🙋</div>
         <h4>Volunteer</h4>
@@ -53,7 +53,7 @@
       <div class="footer-contact">
         📍 96/70 M.1 Phra Phuket Kaeo Road, Phuket 83120, Thailand<br>
         📞 <a href="tel:+66935819645">+66 93 581 9645</a><br>
-        ✉️ <a href="mailto:info@sdg14asia.com">info@sdg14asia.com</a>
+        ✉️ <a href="mailto:info@sdg14asia.org">info@sdg14asia.org</a>
       </div>
       <div class="footer-social">
 <!--
@@ -114,9 +114,9 @@
       <ul>
         <li><a href="href="/files/SDG14AsiaRegistration-English.pdf" target="_blank">Membership</a></li>
         <li><a href="/files/SDG14AsiaRegistration-English.pdf" target="_blank">Donate</a></li>
-        <li><a href="mailto:info@sdg14asia.com">Volunteer</a></li>
-        <li><a href="mailto:info@sdg14asia.com">Become a Partner</a></li>
-        <li><a href="mailto:info@sdg14asia.com">Contact</a></li>
+        <li><a href="mailto:info@sdg14asia.org">Volunteer</a></li>
+        <li><a href="mailto:info@sdg14asia.org">Become a Partner</a></li>
+        <li><a href="mailto:info@sdg14asia.org">Contact</a></li>
       </ul>
     </div>
   </div>
