@@ -929,3 +929,12 @@ footer {
   font-size: 0.82rem; font-weight: 400; letter-spacing: 0.06em;
   text-transform: uppercase; padding: 0 1rem;
 }
+
+.nav-links a.nav-ancestor,
+.mobile-menu a.nav-ancestor {
+    color: var(--teal-mid);
+}
+.nav-links a.nav-ancestor:hover,
+.mobile-menu a.nav-ancestor:hover {
+    color: var(--sand);
+}

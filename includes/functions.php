@@ -15,9 +15,15 @@ function preprocess_JSON($rawJson) {
 }
 
 function nav_link(string $href, string $label): string {
-  $uri = strtok($_SERVER['REQUEST_URI'], '?');
-  $current = $href === '/' ? $uri === '/' : str_starts_with($uri, $href);
-  return $current
-    ? '<span class="nav-current">' . $label . '</span>'
-    : '<a href="' . $href . '">' . $label . '</a>';
+    $uri = strtok($_SERVER['REQUEST_URI'], '?');
+    $exact   = $uri === $href;
+    $ancestor = $href !== '/' && str_starts_with($uri, rtrim($href, '/') . '/');
+
+    if ($exact) {
+        return '<span class="nav-current">' . $label . '</span>';
+    }
+    if ($ancestor) {
+        return '<a href="' . $href . '" class="nav-ancestor">' . $label . '</a>';
+    }
+    return '<a href="' . $href . '">' . $label . '</a>';
 }
