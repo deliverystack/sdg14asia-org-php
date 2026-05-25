@@ -773,15 +773,15 @@ CSS
 
 
 .research-proposal {
-  padding: 6rem 0 4rem;
+  padding: 3rem 0 2rem; /* Reduced from 6rem 0 4rem to tighten top/bottom page padding */
   background-color: var(--white);
   color: var(--text-dark);
 }
 
 .proposal-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem; /* Reduced from 3rem to bring the content closer to the header */
   border-bottom: 2px solid var(--ocean-light);
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem; /* Slightly reduced from 2rem */
 }
 
 .proposal-title {
@@ -798,7 +798,7 @@ CSS
 }
 
 .proposal-section {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem; /* Reduced from 3.5rem to compress whitespace between major sections */
 }
 
 .section-subtitle {
@@ -813,7 +813,7 @@ CSS
 .research-proposal h3 {
   font-size: 1.2rem;
   color: var(--ocean-mid);
-  margin: 1.5rem 0 0.75rem 0;
+  margin: 1rem 0 0.5rem 0; /* Reduced top margin from 1.5rem and bottom from 0.75rem */
 }
 
 .research-proposal p {
