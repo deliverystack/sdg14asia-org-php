@@ -28,21 +28,14 @@
           </div>
         </div>
       </div>
-      <div class="about-img">
-        <div class="about-img-inner">
-
-        <img src="/images/koh-chang.jpeg" alt="Koh Chang, Thailand" />
-          <!--
-          <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 60 Q30 20 50 50 Q70 80 90 40" stroke="white" stroke-width="3" fill="none"/>
-            <circle cx="20" cy="50" r="6" fill="white" opacity="0.3"/>
-            <circle cx="50" cy="35" r="10" fill="white" opacity="0.2"/>
-            <circle cx="75" cy="45" r="8" fill="white" opacity="0.25"/>
-          </svg>
-          <span>Your ocean imagery here</span>
-          -->
-        </div>
-      </div>
+<div class="about-img">
+  <div class="about-img-inner">
+    <figure class="captioned-media">
+      <img src="/images/koh-chang.jpeg" alt="Koh Chang, Thailand" />
+      <figcaption class="media-caption">Koh Chang, Thailand</figcaption>
+    </figure>
+  </div>
+</div>
     </div>
   </div>
 </section>
