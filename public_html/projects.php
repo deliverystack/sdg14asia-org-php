@@ -17,13 +17,15 @@ include_once __DIR__ . '/../includes/header.php';
   <div class="container">
     <header class="section-header">
       <h1 class="page-title">Scientific Collaboration Opportunities</h1>
-      <p class="page-lead">The Marine Kindergarten + Blue Carbon + Plankton Observatory Pilot Project is intended as a multidisciplinary marine research platform that provides scientists with a unique opportunity to investigate biodiversity enhancement within marina environments, an area that remains relatively understudied in tropical Asia. The project seeks scientific partners to co-design research methodologies, supervise data collection, lead analyses, and co-author publications arising from the study.</p>
+      <p class="page-lead">The Marine Kindergarten + Blue Carbon + Plankton Observatory Pilot Project is intended as a multidisciplinary marine research platform that provides scientists with a unique opportunity to investigate biodiversity enhancement within marina environments, an area that remains relatively understudied in tropical Asia.</p>
+        
+      <!--<p>The project seeks scientific partners to co-design research methodologies, supervise data collection, lead analyses, and co-author publications arising from the study.</p>-->
     </header>
 
     <section class="content-block">
       <h2 class="section-subtitle">Scientific Objectives</h2>
       <p>The project aims to investigate the ecological role of artificial nursery habitats installed within marina environments and evaluate their potential contribution to coastal biodiversity conservation. Key research questions include:</p>
-      
+<!--      
       <div class="objective-block">
         <h3>Marine Kindergarten</h3>
         <ul class="styled-list">
@@ -50,9 +52,9 @@ include_once __DIR__ . '/../includes/header.php';
           <li>Can plankton abundance and diversity be used as indicators of ecosystem productivity and habitat quality?</li>
           <li>What relationships exist between plankton dynamics and juvenile fish recruitment?</li>
         </ul>
-      </div>
+      </div>-->
     </section>
-
+<!--
     <section class="content-block">
       <h2 class="section-subtitle">Research Platform</h2>
       <h3>Study Sites</h3>
@@ -169,6 +171,8 @@ include_once __DIR__ . '/../includes/header.php';
         </table>
       </div>
     </section>
+
+-->
   </div>
 </main>
 
