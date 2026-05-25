@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../includes/functions.php'; // find it once
+require_once __DIR__ . '/../includes/functions.php'; // find it once
 
 $metaJSON = '{
     "title": "//TODO:",

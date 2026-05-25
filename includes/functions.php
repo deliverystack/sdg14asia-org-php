@@ -15,7 +15,8 @@ function preprocess_JSON($rawJson) {
 }
 
 function nav_link(string $href, string $label): string {
-  $current = strtok($_SERVER['REQUEST_URI'], '?') === $href;
+  $uri = strtok($_SERVER['REQUEST_URI'], '?');
+  $current = $href === '/' ? $uri === '/' : str_starts_with($uri, $href);
   return $current
     ? '<span class="nav-current">' . $label . '</span>'
     : '<a href="' . $href . '">' . $label . '</a>';
