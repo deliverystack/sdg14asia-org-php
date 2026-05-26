@@ -28,8 +28,8 @@
           </div>
         </div>
       </div>
-      <div class="about-img">
-        <div class="about-img-inner">
+      <div class="default-img">
+        <div class="default-img-inner">
           <figure class="captioned-media">
             <img src="/images/koh-chang.jpeg" alt="Koh Chang, Thailand" />
             <figcaption class="media-caption">Koh Chang, Thailand</figcaption>
