@@ -86,11 +86,11 @@
     <li><?= nav_link('/projects', 'Projects') ?></li>
 
 <!--
-    <li><a href="#">About</a></li>
     <li><a href="#">Events</a></li>
     <li><a href="#">Stories</a></li>
   -->
-    <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Membership</a></li>
+    <li><a href="/about-us">About</a></li>
+    <li><a href="/membership" target="_blank">Membership</a></li>
     <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Donate</a></li>
     <li><a href="mailto:info@sdg14asia.org">Contact</a></li>
   </ul>
