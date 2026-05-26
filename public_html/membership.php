@@ -38,10 +38,13 @@ include_once __DIR__ . '/../includes/header.php';
       <div id="mf_placeholder" 
             data-formurl="//formket.com/embed.php?id=58789" 
             data-formtitle="MEMBERSHIP APPLICATION FORM"  
-            data-formheight="3907" 
+            data-formheight="auto" 
            data-paddingbottom="10">
 
       </div>
+
+      <!-- 3907 -->
+       
       <script>
         (function(f,o,r,m){
           r=f.createElement('script');r.async=1;r.src=o+'js/mf.js';
