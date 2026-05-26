@@ -83,14 +83,14 @@
   <!-- Desktop links -->
   <ul class="nav-links">
     <li><?= nav_link('/', 'Home') ?></li>
+    <li><?= nav_link('/about-us', 'About') ?></li>
     <li><?= nav_link('/projects', 'Projects') ?></li>
+    <li><?= nav_link('/membership', 'Membership') ?></li>
 
 <!--
     <li><a href="#">Events</a></li>
     <li><a href="#">Stories</a></li>
   -->
-    <li><a href="/about-us">About</a></li>
-    <li><a href="/membership" target="_blank">Membership</a></li>
     <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Donate</a></li>
     <li><a href="mailto:info@sdg14asia.org">Contact</a></li>
   </ul>
@@ -121,9 +121,11 @@
 <!-- Mobile menu drawer -->
 <ul class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
   <li><a href="/">Home</a></li>
-<!---
-  <li><a href="#">About</a></li>
-  <li><a href="#">Projects</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/membership">Membership</a></li>
+
+  <!---
   <li><a href="#">Events</a></li>
   <li><a href="#">Stories</a></li>
 -->  
