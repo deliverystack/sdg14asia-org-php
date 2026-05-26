@@ -122,13 +122,17 @@
   </div>
   -->
   <div class="footer-bottom">
-    <span>© 2026 SDG14 Asia Association. All rights reserved.</span>
+    <span>&copy; 2026 SDG14 Asia Association. All rights reserved.</span>
     <div class="footer-bottom-links">
-      Certificate of Association Registration: <a href="/files/SDG14AsiaRegistration-English.pdf">English</a><span style="padding: 0 0.35em">|</span><a href="/files/SDG14AsiaRegistration-Thai.pdf">Thai</a>
-
-<!--      <a href="#">Privacy Policy</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#">Terms of Use</a>-->
+      <a href="/cookie-policy">Privacy &amp; Cookie Policy</a>
+      <span class="footer-sep">|</span>
+      <a href="/disclaimer-terms">Disclaimer &amp; Terms of Use</a>
+      <span class="footer-sep">|</span>
+      <span>Certificate of Association Registration:
+        <a href="/files/SDG14AsiaRegistration-English.pdf">English</a>
+        <span class="footer-sep">/</span>
+        <a href="/files/SDG14AsiaRegistration-Thai.pdf">Thai</a>
+      </span>
     </div>
   </div>
 </footer>
