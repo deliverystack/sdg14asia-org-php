@@ -1,35 +1,47 @@
 <?php
-
 require_once __DIR__ . '/../includes/functions.php';
-
 $metaJSON = '{
     "title": "Sitemap",
     "description": "All pages on this site."
 }';
-
 $meta = preprocess_JSON($metaJSON);
-
 include_once __DIR__ . '/../includes/header.php';
 
-function collect_php_tree(string $base_root, string $dir, string $url_prefix): array {
+$knownPages = [
+    ['path' => '/about-us',                        'title' => 'About Us'],
+    ['path' => '/cookie-policy',                   'title' => 'Cookie Policy'],
+    ['path' => '/disclaimer-terms',                'title' => 'Disclaimer & Terms'],
+    ['path' => '/membership',                      'title' => 'Membership'],
+    ['path' => '/projects',                        'title' => 'Projects'],
+    ['path' => '/projects/marine-kindergarten',    'title' => 'Marine Kindergarten'],
+];
+
+function collect_php_tree(string $dir, string $url_prefix, array $knownPages): array {
+    $knownPaths = array_column($knownPages, 'path');
     $node = ['files' => [], 'dirs' => []];
     $items = @scandir($dir);
     if (!$items) return $node;
+
     foreach ($items as $item) {
         if ($item === '.' || $item === '..') continue;
         $full = $dir . '/' . $item;
         $skip = ['sitemap.php', 'index.php'];
+
         if (is_dir($full)) {
-            $child = collect_php_tree($base_root, $full, $url_prefix . '/' . $item);
+            $child = collect_php_tree($full, $url_prefix . '/' . $item, $knownPages);
             if (!empty($child['files']) || !empty($child['dirs'])) {
                 $node['dirs'][$item] = $child;
             }
         } elseif (pathinfo($item, PATHINFO_EXTENSION) === 'php' && $item[0] !== '.' && !in_array($item, $skip)) {
             $filename = pathinfo($item, PATHINFO_FILENAME);
             $urlPath  = rtrim($url_prefix, '/') . '/' . $filename;
+            $knownIndex = array_search($urlPath, $knownPaths);
+            $label = $knownIndex !== false
+                ? $knownPages[$knownIndex]['title']
+                : ucfirst($filename);
             $node['files'][] = [
                 'urlPath' => $urlPath,
-                'label'   => ucfirst($filename),
+                'label'   => $label,
             ];
         }
     }
@@ -38,7 +50,6 @@ function collect_php_tree(string $base_root, string $dir, string $url_prefix): a
 
 function render_html_tree(array $node): string {
     $out = "<ul>\n";
-
     $merged = [];
     foreach ($node['files'] as $f) {
         $basename = basename($f['urlPath']);
@@ -46,14 +57,12 @@ function render_html_tree(array $node): string {
             $merged[$basename] = $f;
         }
     }
-
     foreach ($node['files'] as $f) {
         $basename = basename($f['urlPath']);
         if (isset($merged[$basename])) continue;
         $out .= "  <li><a href=\"" . htmlspecialchars($f['urlPath']) . "\">"
               . htmlspecialchars($f['label']) . "</a></li>\n";
     }
-
     foreach ($node['dirs'] as $dirname => $child) {
         if (isset($merged[$dirname])) {
             $f    = $merged[$dirname];
@@ -67,15 +76,12 @@ function render_html_tree(array $node): string {
                   . "  </li>\n";
         }
     }
-
     $out .= "</ul>\n";
     return $out;
 }
 
-$tree = collect_php_tree(__DIR__, __DIR__, '');
-
+$tree = collect_php_tree(__DIR__, '', $knownPages);
 ?>
-
 <main class="content-section">
   <div class="container">
     <header class="section-header">
@@ -86,5 +92,4 @@ $tree = collect_php_tree(__DIR__, __DIR__, '');
     </section>
   </div>
 </main>
-
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
