@@ -22,7 +22,7 @@ $quoteJSON = '{
 $quote = preprocess_JSON($quoteJSON);
 include_once APP_ROOT . '/includes/quote.php'; 
 
-include_once APP_ROOT . '/includes/events.php'; 
+//include_once APP_ROOT . '/includes/events.php'; 
 
 include_once APP_ROOT . '/includes/projects.php'; 
 

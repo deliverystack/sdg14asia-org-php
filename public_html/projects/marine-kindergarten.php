@@ -14,13 +14,16 @@ include_once APP_ROOT . '/includes/header.php';
 </header>
 
 <section class="content-block">
-<p><strong>Marine Kindergarten + Blue Carbon + Plankton Observatory</strong> is a 12-month pilot research and conservation initiative designed to evaluate whether specially engineered underwater habitat structures can enhance marine biodiversity, improve juvenile fish survival and recruitment, and strengthen ecosystem health within coastal marina environments.</p>
-<p>The project will deploy <strong>12 habitat units</strong> (120 cm × 75 cm) across multiple marina sites, creating artificial nursery habitats that provide shelter and colonization surfaces for juvenile fish, crustaceans, mollusks, and other marine organisms. These structures are intended to replicate natural refuge habitats that are often limited in developed waterfront areas.</p>
-<p>The research integrates three complementary components:</p>
+<p>The project aims to evaluate whether specially designed underwater habitat structures installed within marina environments can enhance biodiversity, increase the survival and recruitment of juvenile fish and marine organisms, and contribute to healthier coastal ecosystems.</p>
+<p><strong>Specific objectives include:</strong></p>
 <ul class="styled-list">
-<li><strong>Marine Kindergarten</strong> – assessing the effectiveness of habitat structures as nursery grounds for juvenile marine species and measuring their contribution to biodiversity enhancement.</li>
-<li><strong>Blue Carbon Connectivity</strong> – investigating ecological links between marina habitats and nearby blue carbon ecosystems, including mangroves, seagrass beds, and coastal vegetation, to better understand habitat connectivity and ecosystem resilience.</li>
-<li><strong>Plankton Observatory</strong> – monitoring plankton abundance, diversity, and seasonal dynamics as indicators of ecosystem productivity, environmental health, and food-web support.</li>
+<li>Increase habitat availability for juvenile fish, crustaceans, molluscs, and other marine organisms within marina environments.</li>
+<li>Measure biodiversity enhancement associated with Marine Kindergarten habitat structures.</li>
+<li>Assess the role of marinas as potential biodiversity refuges and ecological corridors.</li>
+<li>Monitor plankton abundance and diversity as indicators of ecosystem productivity and environmental health.</li>
+<li>Investigate links between marine biodiversity, water quality, and nearby blue carbon ecosystems such as mangroves, seagrass beds, and coastal vegetation.</li>
+<li>Develop a scalable marina-based conservation model that can be replicated throughout Thailand and internationally.</li>
+<li>Generate scientifically robust data to support marine conservation, policy development, and public education.</li>
 </ul>
 </section>
 
@@ -34,7 +37,39 @@ include_once APP_ROOT . '/includes/header.php';
 </div>
 
 <section class="content-block">
-<p>The project will employ a comprehensive monitoring framework that includes baseline ecological assessments, monthly biodiversity surveys, underwater camera systems, water-quality monitoring, and plankton sampling. Data collected will include species richness and abundance, juvenile fish recruitment, habitat utilization, water quality parameters, plankton diversity, and ecological interactions. Advanced analysis methods, including AI-assisted image recognition, may be used to enhance long-term monitoring efficiency.</p>
+<h2>Expected Research Outputs</h2>
+<p>The project is expected to generate:</p>
+
+<h3>Scientific Outputs</h3>
+<ul class="styled-list">
+<li>Biodiversity inventory of marina-associated species.</li>
+<li>Juvenile fish recruitment dataset.</li>
+<li>Plankton monitoring dataset.</li>
+<li>Water quality dataset.</li>
+<li>Habitat colonization dataset.</li>
+<li>Seasonal ecological trends.</li>
+</ul>
+
+<h3>Conservation Outputs</h3>
+<ul class="styled-list">
+<li>Demonstrated biodiversity benefits of Marine Kindergarten habitats.</li>
+<li>Best-practice guidelines for marina biodiversity enhancement.</li>
+<li>Recommendations for marina sustainability programs.</li>
+<li>SDG 14 implementation case study.</li>
+</ul>
+
+<h3>Educational Outputs</h3>
+<ul class="styled-list">
+<li>Public awareness materials.</li>
+<li>Citizen science engagement opportunities.</li>
+<li>Educational content for schools and universities.</li>
+</ul>
+
+<h3>Policy Outputs</h3>
+<ul class="styled-list">
+<li>Recommendations for integrating biodiversity enhancement into marina design and management.</li>
+<li>Potential framework for marina biodiversity certification programs.</li>
+</ul>
 </section>
 
 <div class="default-img">
@@ -47,14 +82,16 @@ include_once APP_ROOT . '/includes/header.php';
 </div>
 
 <section class="content-block">
-<p>Expected outcomes include the creation of robust scientific datasets, evidence-based recommendations for biodiversity enhancement in marina environments, best-practice conservation guidelines, educational and citizen-science opportunities, and policy recommendations that support sustainable coastal development and marine conservation.</p>
-<p>The project also provides opportunities for student research, scientific publications, and international collaboration, with the long-term vision of developing a scalable and replicable model for marina-based marine conservation that can be adopted across coastal regions while contributing to <strong>Sustainable Development Goal 14: Life Below Water</strong>.</p>
+<p><strong>Target outcomes:</strong></p>
 <ul class="styled-list">
-<li><strong>Project Duration:</strong> 12 months</li>
-<li><strong>Habitat Units:</strong> 12 Marine Kindergarten structures</li>
-<li><strong>Habitat Size:</strong> 120 cm × 75 cm</li>
-<li><strong>Primary Focus:</strong> Biodiversity enhancement, juvenile fish recruitment, blue carbon connectivity, plankton monitoring, and marina-based marine conservation.</li>
+<li>Peer-reviewed scientific publications.</li>
+<li>Conference presentations.</li>
+<li>Student theses and dissertations.</li>
+<li>International marina sustainability case studies.</li>
 </ul>
+
+<h2>Long-Term Vision</h2>
+<p>The project aims to establish Phuket as a regional demonstration site for marina-based marine conservation, creating a model that can be replicated across Thailand, Southeast Asia, and other coastal regions while contributing measurable outcomes toward <strong>SDG 14: Life Below Water</strong>.</p>
 </section>
 
 <div class="default-img">
