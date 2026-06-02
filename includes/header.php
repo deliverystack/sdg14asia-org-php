@@ -91,7 +91,7 @@
     <li><a href="#">Events</a></li>
     <li><a href="#">Stories</a></li>
   -->
-    <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Donate</a></li>
+<!--    <li><a href="/forms/SDG14Asia-Membership-Application-Form.pdf" target="_blank">Donate</a></li>-->
     <li><a href="mailto:info@sdg14asia.org">Contact</a></li>
   </ul>
 
@@ -107,7 +107,7 @@
       <button class="lang-btn" data-lang="zh">中文</button>
     </div>
   -->
-    <button class="btn-donate" onclick="window.open('/donate')">Donate</button>
+    <a href="/donate" class="btn-donate">Donate</a>
   </div>
 
   <!-- Hamburger (mobile only) -->
