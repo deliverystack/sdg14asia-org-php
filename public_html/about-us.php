@@ -3,8 +3,8 @@
 require_once __DIR__ . '/../includes/functions.php';
 
 $metaJSON = '{
-    "title": "About Us",
-    "description": "Learn about SDG14 Asia, our mission to protect marine ecosystems, and the team behind our international network for ocean conservation."
+    "title": "About SDG14Asia",
+    "description": "Learn about SDG14 SDG14Asia, our mission to protect marine ecosystems, and the team behind our international network for ocean conservation."
 }';
 
 $meta = preprocess_JSON($metaJSON);
@@ -28,12 +28,19 @@ include_once __DIR__ . '/../includes/header.php';
 
     <section class="content-block">
       <h2 class="section-subtitle">Our Team</h2>
+
       <div class="team-grid">
+
         <div class="team-card">
-          <div class="team-photo">
-          <img src="/images/team/Philipp-Heisig.jpeg" alt="Philipp Heisig"
-            style="width:100%; height:400px; object-fit:cover; object-position:top;" />
-        </div>
+          <div class="team-photo" aria-label="Photo of Philipp Heisig">
+            <div class="team-photo-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="24" r="12" fill="rgba(255,255,255,0.25)"/>
+                <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" fill="rgba(255,255,255,0.15)"/>
+              </svg>
+              <span>Photo coming soon</span>
+            </div>
+          </div>
           <div class="team-info">
             <h3 class="team-name">Philipp Heisig</h3>
             <p class="team-role">President</p>
@@ -41,10 +48,16 @@ include_once __DIR__ . '/../includes/header.php';
             <p>His deep knowledge of maritime operations and his extensive relationships across the global sailing and shipping communities make him a uniquely effective advocate for sustainable ocean stewardship.</p>
           </div>
         </div>
+
         <div class="team-card">
-          <div class="team-photo">
-          <img src="/images/team/Charida-Jitwongwai.jpeg" alt="Charida Jitwongwai"
-            style="width:100%; height:400px; object-fit:contain; background:#f0f0f0;" />
+          <div class="team-photo" aria-label="Photo of Charida Jitwongwai">
+            <div class="team-photo-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="24" r="12" fill="rgba(255,255,255,0.25)"/>
+                <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" fill="rgba(255,255,255,0.15)"/>
+              </svg>
+              <span>Photo coming soon</span>
+            </div>
           </div>
           <div class="team-info">
             <h3 class="team-name">Charida Jitwongwai</h3>
@@ -53,6 +66,7 @@ include_once __DIR__ . '/../includes/header.php';
             <p>With her experience in international organisational and cooperation structures, she strengthens regional partnerships and supports the development of sustainable networks across Asia.</p>
           </div>
         </div>
+
       </div>
     </section>
 

@@ -35,15 +35,16 @@ include_once __DIR__ . '/../includes/header.php';
       <h2 class="section-subtitle">Membership Application</h2>
       <p>Please complete the form below to apply for membership. All fields marked as required must be filled in. We will review your application and contact you at the email address provided.</p>
 
+      <!-- this form won't look right on localhost due to an error you should find in the JavaScript console -->
+      <!-- original height: 3907 -->
+
       <div id="mf_placeholder" 
             data-formurl="//formket.com/embed.php?id=58789" 
             data-formtitle="MEMBERSHIP APPLICATION FORM"  
             data-formheight="auto" 
            data-paddingbottom="10">
-
       </div>
 
-      <!-- 3907 -->
        
       <script>
         (function(f,o,r,m){
