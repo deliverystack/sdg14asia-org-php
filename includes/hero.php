@@ -20,7 +20,7 @@
       </div>
       <div class="stat-card">
         <span class="stat-num">6</span>
-        <span class="stat-label">Volunters</span>
+        <span class="stat-label">Volunteers</span>
       </div>
       <div class="stat-card">
         <span class="stat-num">SE</span>
