@@ -1014,3 +1014,6 @@ footer {
   overflow: hidden;
   max-height: 520px;
 }
+
+ol.styled-list { list-style: decimal; }
+ol.styled-list li::before { content: none; }

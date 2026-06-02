@@ -16,7 +16,7 @@ include_once APP_ROOT . '/includes/header.php';
 <section class="content-block">
 <p>The project aims to evaluate whether specially designed underwater habitat structures installed within marina environments can enhance biodiversity, increase the survival and recruitment of juvenile fish and marine organisms, and contribute to healthier coastal ecosystems.</p>
 <p><strong>Specific objectives include:</strong></p>
-<ul class="styled-list">
+<ol class="styled-list">
 <li>Increase habitat availability for juvenile fish, crustaceans, molluscs, and other marine organisms within marina environments.</li>
 <li>Measure biodiversity enhancement associated with Marine Kindergarten habitat structures.</li>
 <li>Assess the role of marinas as potential biodiversity refuges and ecological corridors.</li>
@@ -24,7 +24,7 @@ include_once APP_ROOT . '/includes/header.php';
 <li>Investigate links between marine biodiversity, water quality, and nearby blue carbon ecosystems such as mangroves, seagrass beds, and coastal vegetation.</li>
 <li>Develop a scalable marina-based conservation model that can be replicated throughout Thailand and internationally.</li>
 <li>Generate scientifically robust data to support marine conservation, policy development, and public education.</li>
-</ul>
+</ol>
 </section>
 
 <div class="default-img">

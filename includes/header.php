@@ -71,9 +71,9 @@
   <!--//TODO: shouldn't be a link if this is the home page-->
 
   <?php if ($_SERVER['REQUEST_URI'] === '/') { ?>
-    <img src="/images/sdg14asia-logo.png" width="100" alt="SDG14Asia.org Logo" />
+    <img src="/images/sdg14asia-logo.jpg" width="130" alt="SDG14Asia.org Logo" />
   <?php } else { ?>
-    <a href="/" id="logo-link"><img src="/images/sdg14asia-logo.png" width="100" alt="SDG14Asia.org Logo" /></a>
+    <a href="/" id="logo-link"><img src="/images/sdg14asia-logo.jpg" width="130" alt="SDG14Asia.org Logo" /></a>
   <?php } ?>
 
 <!--    </div>-->
