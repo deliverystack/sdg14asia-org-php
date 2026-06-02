@@ -107,7 +107,7 @@
       <button class="lang-btn" data-lang="zh">中文</button>
     </div>
   -->
-    <button class="btn-donate" onclick="window.open('/forms/SDG14Asia-Membership-Application-Form.pdf', '_blank')">Donate</button>
+    <button class="btn-donate" onclick="window.open('/donate')">Donate</button>
   </div>
 
   <!-- Hamburger (mobile only) -->
