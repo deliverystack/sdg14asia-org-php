@@ -3,8 +3,8 @@
 require_once __DIR__ . '/../includes/functions.php';
 
 $metaJSON = '{
-    "title": "//TODO:",
-    "description": "//TODO:"
+    "title": "SDG14Asia Projects",
+    "description": "SDG14Asia Projects"
 }';
 
 $meta = preprocess_JSON($metaJSON);
